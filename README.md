@@ -38,9 +38,7 @@ The REST API is quite straightforward and should be simple to use. A couple of e
 
 *Request (for the specified OpenFlow Switch ID and desired port):*
 
-	```bash
 	$ curl -d '{"switchid": "00:00:00:00:00:00:00:51", "port":"eth3", "rate":20}' http://127.0.0.1:8080/wm/queuepusher/qpc/json 
-	```
 
 *Response (QueueID, QueueUUID, QoSUUID, Std. Error, Exit Code and Std. Out)*
 
@@ -52,9 +50,7 @@ Further Queue creations in the same port will result in different incrementing I
 
 *Example:*
 
-	```bash
 	$ curl -d '{"switchid": "00:00:00:00:00:00:00:51", "port":"eth3", "rate":20}' http://127.0.0.1:8080/wm/queuepusher/qpc/json
-	```
 
 	{"id":"2","queueuuid":"a6acf0b4-f794-44d6-8a62-9f221842f386","qosuuid":"99172e77-79fd-467b-8e13-7ca9df49ec7e","err":"","exitcode":"SUCCESS","out":""}
 
@@ -63,9 +59,7 @@ Further Queue creations in the same port will result in different incrementing I
 
 *Request (for the specified OpenFlow Switch ID and desired port):*
 
-	```bash
 	$ curl -X DELETE -d '{"switchid": "00:00:00:00:00:00:00:51", "queueuuid":"a6acf0b4-794-44d6-8a62-9f221842f386","qosuuid":"99172e77-79fd-467b-8e13-7ca9df49ec7e"}' http://127.0.0.1:8080/wm/queuepusher/qpd/json
-	```
 
 *Response (Std. Error, Exit Code and Std. Out)*
 
