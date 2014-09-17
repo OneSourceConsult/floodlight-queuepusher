@@ -1,6 +1,6 @@
 # Floodlight QueuePusher
 
-This is a module to be installed within Floodlight[🔗](http://www.projectfloodlight.org/floodlight/) to facilitate the installation of Queues in Open vSwitches.
+This is a module to be installed within Floodlight[🔗](http://www.projectfloodlight.org/floodlight/) to facilitate the installation and removal of Queues in Open vSwitches.
 
 ## Objective
 
@@ -8,7 +8,7 @@ With the intention of providing an interface inside the Floodlight controller to
 
 ## Features
 
-- Uses OVSDB protocol to communicate with Open vSwitches
+- Uses [OVSDB protocol](http://www.rfc-editor.org/rfc/rfc7047.txt) to communicate with Open vSwitches
 - Complete integration with Floodlight REST API
 
 ## Requirements
