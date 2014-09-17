@@ -5,8 +5,8 @@
  * All rights reserved.
  *
  * This software is copyright of OneSource Consultoria Informatica.
- * You shall not disclose such Confidential Information and shall use it only in
- * accordance with the terms of the license agreement you entered into
+ * You use it only in accordance with the terms of the
+ * license agreement you entered into
  * with OneSource.
  */
 
