@@ -28,10 +28,46 @@ Assuming that all the above requirements are met:
 
 1. Place the QueuePusher package inside the source of Floodlight
 2. That's it!
+ 
+###Short examples:
+
+
+The REST API is quite straightforward and should be simple to use. A couple of examples follow:
+
+**Queue Creation**
+
+*Request (for the specified OpenFlow Switch ID and desired port):*
+
+	curl -d '{"switchid": "00:00:00:00:00:00:00:51", "port":"eth3", "rate":20}' http://127.0.0.1:8080/wm/queuepusher/qpc/json 
+
+*Response (QueueID, QueueUUID, QoSUUID, Std. Error, Exit Code and Std. Out)*
+
+	{"id":"1","queueuuid":"f8de823c-a4cb-4098-8eef-800aece60fc5","qosuuid":"99172e77-79fd-467b-8e13-7ca9df49ec7e","err":"","exitcode":"SUCCESS","out":""}
+
+The output provided by the QueuePusher consists of output returned by the chosen Open vSwitch when using OVSDB (Std. Out and Std. Err.). The same applies to the Queue and QoS IDs, being the exit code mapped in [QueuePusherResponseCode.java](https://github.com/OneSourceConsult/floodlight-queuepusher/blob/master/net/floodlightcontroller/queuepusher/QueuePusherResponseCode.java) file.
+
+Further Queue creations in the same port will result in different incrementing IDs.
+
+*Example:*
+
+	curl -d '{"switchid": "00:00:00:00:00:00:00:51", "port":"eth3", "rate":20}' http://127.0.0.1:8080/wm/queuepusher/qpc/json 
+
+	{"id":"2","queueuuid":"a6acf0b4-f794-44d6-8a62-9f221842f386","qosuuid":"99172e77-79fd-467b-8e13-7ca9df49ec7e","err":"","exitcode":"SUCCESS","out":""}ricardo@flrfcdn:~$ 
+
+
+**Queue Deletion**
+
+*Request (for the specified OpenFlow Switch ID and desired port):*
+
+	curl -X DELETE -d '{"switchid": "00:00:00:00:00:00:00:51", "queueuuid":"a6acf0b4-794-44d6-8a62-9f221842f386","qosuuid":"99172e77-79fd-467b-8e13-7ca9df49ec7e"}' http://127.0.0.1:8080/wm/queuepusher/qpd/json 
+
+*Response (Std. Error, Exit Code and Std. Out)*
+
+	{"err":"","exitcode":"SUCCESS","out":""}
 
 ## Source
 
-If not doing so already, you can download the latest version of the JavaProfiling-tool by cloning the [github](https://github.com/OneSourceConsult/floodlight-queuepusher) repository.
+If not doing so already, you can download the latest version of the Floodlight QueuePusher module by cloning the [github](https://github.com/OneSourceConsult/floodlight-queuepusher) repository.
 
 ## Copyright
 
