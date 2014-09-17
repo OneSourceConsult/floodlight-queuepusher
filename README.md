@@ -17,7 +17,7 @@ To successfully install and run Floodlight with the QueuePusher, the following r
 
 - Oracle Java Virtual Machine ≥ 1.6
 - Floodlight == 0.9
-- Open vSwitch ≥ 1.9.3 (tested with ≥ 2.0.0 as well)
+- Open vSwitch ≥ 1.9.3 (tested with == 2.0.0 as well)
 - curl ≥ 7.22.0
 
 **Note:** Since this is provided as a module, it is at least expected from you to know how to build Floodlight.
@@ -39,7 +39,7 @@ Copyright (c) 2014 OneSource Consultoria Informatica, Lda. [🔗](http://www.one
 
 Copyright (c) 2014 RedZinc [🔗](http://www2.redzinc.net/)
 
-This project has been developed in the scope of the CityFlow project[🔗](http://www.cityflow.eu/) by João Gonçalves
+This project has been developed in the scope of the CityFlow project[🔗](http://www.cityflow.eu/) by João Gonçalves and David Palma
 
 ## License
 
