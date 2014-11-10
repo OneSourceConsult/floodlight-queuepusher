@@ -24,8 +24,6 @@ import org.slf4j.LoggerFactory;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import static cf.os.javalogger.core.Log.*;
-
 /**
  *
  * @author Joao Goncalves
@@ -51,8 +49,6 @@ public class QueuePusherCreateResource extends ServerResource {
 			logger.info("JSON Received: "+fmJson);
 			args = mapper.readValue(fmJson, Map.class);
 		} catch (IOException e) { logger.warn("Error parsing JSON arguments", e); }
-		
-		measure("createQueue", (String)args.get("switchid"));
 		
 		Map<String, Object> jsonRsp = new HashMap<String, Object>();
 		
@@ -86,7 +82,6 @@ public class QueuePusherCreateResource extends ServerResource {
 		}
 		
 		logger.info("JSON returned: "+jsonString);
-		measure("createQueue_stop", (String)args.get("switchid"));
 		return jsonString;
 		
 	}

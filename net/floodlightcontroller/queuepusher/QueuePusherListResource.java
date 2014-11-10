@@ -23,8 +23,6 @@ import org.slf4j.LoggerFactory;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import static cf.os.javalogger.core.Log.*;
-
 public class QueuePusherListResource extends ServerResource {
 	
 	protected static Logger logger = LoggerFactory.getLogger(QueuePusherListResource.class);
@@ -33,8 +31,6 @@ public class QueuePusherListResource extends ServerResource {
 	public String retrieve() {
 		
 		String sid = (String) getRequestAttributes().get("switch");
-		
-		measure("listResources", sid);
 		
 		ObjectMapper mapper = new ObjectMapper();
 		QueuePusherResponse rsp = new QueuePusherResponse(QueuePusherResponseCode.NOT_IMPLEMENTED);
@@ -52,7 +48,6 @@ public class QueuePusherListResource extends ServerResource {
 			logger.warn("Problem parsing JSON response", e);
 		}
 		
-		measure("listResources_stop", sid);
 		return jsonString;
 		
 	}

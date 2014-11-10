@@ -24,8 +24,6 @@ import org.slf4j.LoggerFactory;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import static cf.os.javalogger.core.Log.*;
-
 public class QueuePusherModifyResource extends ServerResource {
 	
 	protected static Logger logger = LoggerFactory.getLogger(QueuePusherModifyResource.class);
@@ -46,8 +44,6 @@ public class QueuePusherModifyResource extends ServerResource {
 		try {
 			 args = mapper.readValue(fmJson, Map.class);
 		} catch (IOException e) { logger.warn("Error parsing JSON arguments", e); }
-		
-		measure("modifyQueue", (String)args.get("switchid"));
 		
 		Map<String, Object> jsonRsp = new HashMap<String, Object>();
 		
@@ -77,7 +73,6 @@ public class QueuePusherModifyResource extends ServerResource {
 			logger.warn("Problem parsing JSON response", e);
 		}
 		
-		measure("modifyQueue_stop", (String)args.get("switchid"));
 		return jsonString;
 		
 	}

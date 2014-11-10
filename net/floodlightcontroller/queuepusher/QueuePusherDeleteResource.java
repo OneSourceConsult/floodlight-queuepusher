@@ -24,8 +24,6 @@ import org.slf4j.LoggerFactory;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import static cf.os.javalogger.core.Log.*;
-
 public class QueuePusherDeleteResource extends ServerResource {
 	
 	protected static Logger logger = LoggerFactory.getLogger(QueuePusherDeleteResource.class);
@@ -47,8 +45,6 @@ public class QueuePusherDeleteResource extends ServerResource {
 			 args = mapper.readValue(fmJson, Map.class);
 		} catch (IOException e) { logger.warn("Error parsing JSON arguments", e); }
 		
-		measure("deleteQueue", (String)args.get("switchid"));
-		
 		boolean dummy = false;
 		try {
 			dummy = ((Integer)args.get("dummy")) == 1 ? true : false;
@@ -68,7 +64,6 @@ public class QueuePusherDeleteResource extends ServerResource {
 			logger.warn("Problem parsing JSON response", e);
 		}
 		
-		measure("deleteQueue_stop", (String)args.get("switchid"));
 		return jsonString;
 		
 	}
